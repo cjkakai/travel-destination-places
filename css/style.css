@@ -1,0 +1,14 @@
+body { 
+    background-color: steelblue;
+}
+
+h1{
+    text-align: center;
+}
+
+#destination-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
