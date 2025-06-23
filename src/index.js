@@ -1,3 +1,5 @@
+//define renderDestination function
+
 function renderDestination(destination){
     const card = document.createElement('div')
     card.classList.add('document-card')
@@ -8,4 +10,13 @@ function renderDestination(destination){
     <p> ${destination.continent}</p>
     `;
     document.getElementById('destination-list').appendChild(card)
+}
+
+//define displayDestination function
+function displayDestination(){
+    fetch("http://localhost:3000/destinations")
+    .then(res => res.json)
+    .then(destinations => destinations.forEach(destination => {renderDestination(destination)
+    }
+))
 }
