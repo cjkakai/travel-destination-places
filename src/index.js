@@ -20,3 +20,8 @@ function displayDestination(){
     }
 ))
 }
+
+//run when dom is ready
+document.addEventListener("DOMContentLoaded", function(){
+    displayDestination();
+});
