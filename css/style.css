@@ -12,3 +12,10 @@ h1{
     gap: 16px;
     justify-content: center;
 }
+#destination-card {
+    background: white;
+    width: 200px;
+    margin: 10px;
+    border-radius: 8px;
+
+}
