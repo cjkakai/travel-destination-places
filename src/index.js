@@ -13,15 +13,32 @@ function renderDestination(destination){
 }
 
 //define displayDestination function
+
 function displayDestination(){
     fetch("http://localhost:3000/destinations")
     .then(res => res.json())
-    .then(destinations => {
-        destinations.forEach(destination => renderDestination(destination))
-    })
+    .then(destinations => {destinations.forEach(renderDestination);
+    filterContinentSelection(destinations);
+});
 }
 
 //run when dom is ready
+
 document.addEventListener("DOMContentLoaded", function(){
     displayDestination();
 });
+
+// filter by continent
+
+function filterContinentSelection(destinations){
+    const continentSelector = document.getElementById('continent-selector');
+
+    continentSelector.addEventListener("change", function(e){
+    const selectedContinent = e.target.value;
+    const checkSelectedCcontinent = selectedContinent === All? destinations:
+    destinations.filter(destination => destination.continent === selectedContinent)
+
+    document.getElementById('destination-list').innerHTML = "";
+    checkSelectedCcontinent.forEach(renderDestination)
+    })
+}
