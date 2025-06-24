@@ -40,3 +40,12 @@ function filterByContinent(destinations){
         continent.forEach(renderDestination);
     })
 }
+
+function addEventListener(){
+    const newDestinationForm = document.getElementById('new-destination-form');
+    newDestinationForm.addEventListener('submit', function(e){
+        e.preventDefault();
+    })
+}
+
+
