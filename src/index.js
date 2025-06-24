@@ -18,7 +18,7 @@ function displayDestination(){
     fetch("http://localhost:3000/destinations")
     .then(res => res.json())
     .then(destinations => {destinations.forEach(renderDestination);
-    filterContinentSelection(destinations);
+    filterByContinent(destinations);
 });
 }
 
@@ -30,15 +30,13 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // filter by continent
 
-function filterContinentSelection(destinations){
+function filterByContinent(destinations){
     const continentSelector = document.getElementById('continent-selector');
-
     continentSelector.addEventListener("change", function(e){
-    const selectedContinent = e.target.value;
-    const checkSelectedCcontinent = selectedContinent === All? destinations:
-    destinations.filter(destination => destination.continent === selectedContinent)
-
-    document.getElementById('destination-list').innerHTML = "";
-    checkSelectedCcontinent.forEach(renderDestination)
+        const selectedContinent = e.target.value;
+        const continent = selectedContinent === All? destinations: 
+        destinations.filter(destination => destination.continent === selectedContinent);
+        document.getElementById('destination-list').innerHTML="";
+        continent.forEach(renderDestination);
     })
 }
