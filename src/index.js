@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function(){
 function filterByContinent(destinations){
     const continentSelector = document.getElementById('continent-selector');
     continentSelector.addEventListener("change", function(e){
+        e.preventDefault();
         const selectedContinent = e.target.value;
         const valueOfTheSelectedContinent = selectedContinent === 'All'? destinations: 
         destinations.filter(destination => destination.continent === selectedContinent);
