@@ -7,7 +7,8 @@ function renderDestination(destination){
     <h3> ${destination.name}</h3>
     <img src="${destination.image}" style ="width:100%; height:auto;" alt="photo of ${destination.name}"/>
     <p> ${destination.description}</p>
-    <p class="continent"> ${destination.continent}</p>
+    <p> class="continent"> ${destination.continent}</p>
+    <button class="delete-btn"></buttom>
     `;
     document.getElementById('destination-list').appendChild(card)
 }
@@ -73,3 +74,5 @@ fetch("http://localhost:3000/destinations", {
 })
     })
 }
+
+// delete function
