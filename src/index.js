@@ -26,6 +26,7 @@ function displayDestination(){
 
 document.addEventListener("DOMContentLoaded", function(){
     displayDestination();
+    addFormListener()
 });
 
 // filter by continent
@@ -34,18 +35,40 @@ function filterByContinent(destinations){
     const continentSelector = document.getElementById('continent-selector');
     continentSelector.addEventListener("change", function(e){
         const selectedContinent = e.target.value;
-        const continent = selectedContinent === All? destinations: 
+        const valueOfTheSelectedContinent = selectedContinent === 'All'? destinations: 
         destinations.filter(destination => destination.continent === selectedContinent);
         document.getElementById('destination-list').innerHTML="";
-        continent.forEach(renderDestination);
+        valueOfTheSelectedContinent.forEach(renderDestination);
     })
 }
 
-function addEventListener(){
+//add event listener
+
+function addFormListener(){
     const newDestinationForm = document.getElementById('new-destination-form');
     newDestinationForm.addEventListener('submit', function(e){
         e.preventDefault();
+
+//grab elements in new description form
+
+const name = document.getElementById('name').value;
+const continent = document.getElementById('continent').value;
+const image = document.getElementById('image').value;
+const description = document.getElementById('description').value;
+
+const newDestination = {name,continent,image,description, visited: false};
+
+fetch("http://localhost:3000/destinations", {
+    method: "POST",
+    headers: {
+        "content-Type":"application/json",
+    },
+    body: JSON.stringify(newDestination)
+})
+.then(res => res.json())
+.then(savedDestination => {
+    renderDestination(savedDestination);
+    newDestinationForm.reset();
+})
     })
 }
-
-
