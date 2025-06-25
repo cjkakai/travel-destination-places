@@ -7,9 +7,19 @@ function renderDestination(destination){
     <h3> ${destination.name}</h3>
     <img src="${destination.image}" style ="width:100%; height:auto;" alt="photo of ${destination.name}"/>
     <p> ${destination.description}</p>
-    <p> class="continent"> ${destination.continent}</p>
-    <button class="delete-btn"></buttom>
+    <p class="continent"> ${destination.continent}</p>
+    <button class="delete-btn">DELETE</buttom>
     `;
+
+    //add delete functionality
+    
+    card.querySelector('.delete-btn').addEventListener('click', () => {
+        fetch(`http://localhost:3000/destinations/${destination.id}`, {
+            method: 'DELETE'
+        })
+        .then(() => card.remove())
+        .catch(err => console.error('Failed to delete:', err));
+    });
     document.getElementById('destination-list').appendChild(card)
 }
 
