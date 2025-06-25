@@ -5,7 +5,7 @@ function renderDestination(destination){
     card.classList.add('document-card')
     card.innerHTML = `
     <h3> ${destination.name}</h3>
-    <img src="${destination.image}" style ="width:100%; height:auto;"/>
+    <img src="${destination.image}" style ="width:100%; height:auto;" alt="photo of ${destination.name}"/>
     <p> ${destination.description}</p>
     <p class="continent"> ${destination.continent}</p>
     `;
