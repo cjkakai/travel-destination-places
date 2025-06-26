@@ -84,5 +84,3 @@ fetch("http://localhost:3000/destinations", {
 })
     })
 }
-
-// delete function
