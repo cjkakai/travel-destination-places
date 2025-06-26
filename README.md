@@ -10,6 +10,7 @@ Travel Destination Explorer is a beginner-friendly web app that allows users to 
 - View a list of travel destinations
 - Filter destinations by continent using a dropdown
 - Add a new destination with name, image, description, and continent
+- Delete destination(s)
 - All interactions are handled asynchronously (no page reloads)
 
 ## Setup Instructions
@@ -30,3 +31,7 @@ npm install -g json-server
    Open the Project
 
 4.Open index.html in your browser to use the app.
+
+## License
+
+This project is licensed under the [MIT License](./license).

@@ -1,4 +1,4 @@
-const BASE_URL = "https://json-server-sample.onrender.com"
+const BASE_URL = "https://travel-destination-server.onrender.com/destinations"
 
 //define renderDestination function
 
@@ -10,7 +10,7 @@ function renderDestination(destination){
     <img src="${destination.image}" style ="width:100%; height:auto;" alt="photo of ${destination.name}"/>
     <p> ${destination.description}</p>
     <p class="continent"> ${destination.continent}</p>
-    <button class="delete-btn">DELETE</buttom>
+    <button class="delete-btn">DELETE</button>
     `;
 
     //add delete functionality
