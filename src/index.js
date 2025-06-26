@@ -1,3 +1,5 @@
+const BASE_URL = "https://json-server-sample.onrender.com"
+
 //define renderDestination function
 
 function renderDestination(destination){
@@ -14,7 +16,7 @@ function renderDestination(destination){
     //add delete functionality
     
     card.querySelector('.delete-btn').addEventListener('click', () => {
-        fetch(`http://localhost:3000/destinations/${destination.id}`, {
+        fetch(`${BASE_URL}/${destination.id}`, {
             method: 'DELETE'
         })
         .then(() => card.remove())
@@ -26,7 +28,7 @@ function renderDestination(destination){
 //define displayDestination function
 
 function displayDestination(){
-    fetch("http://localhost:3000/destinations")
+    fetch(BASE_URL)
     .then(res => res.json())
     .then(destinations => {destinations.forEach(renderDestination);
     filterByContinent(destinations);
@@ -70,7 +72,7 @@ const description = document.getElementById('description').value;
 
 const newDestination = {name,continent,image,description, visited: false};
 
-fetch("http://localhost:3000/destinations", {
+fetch(BASE_URL, {
     method: "POST",
     headers: {
         "content-Type":"application/json",

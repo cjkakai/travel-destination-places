@@ -24,9 +24,9 @@ bash
 npm install -g json-server
 
 3.Start JSON Server
-Make sure you have a db.json file with destination data. Then run:
-bash
-json-server --watch db.json
-Open the Project
+   Make sure you have a db.json file with destination data. Then run:
+   bash
+   json-server --watch db.json
+   Open the Project
 
 4.Open index.html in your browser to use the app.
